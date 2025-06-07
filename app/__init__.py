@@ -8,18 +8,18 @@ def create_app():
     app = Flask(__name__, static_folder='static')
     app.config['SECRET_KEY'] = 'your-secret-key'
     basedir = os.path.abspath(os.path.dirname(__file__))
-    # SQLite DB in project root
+    # SQLite DB
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, '..', 'papers.db')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    # Uploads folder in project root
+    # Uploads folder
     upload_folder = os.path.join(basedir, '..', 'uploads')
     app.config['UPLOAD_FOLDER'] = upload_folder
     os.makedirs(upload_folder, exist_ok=True)
 
     db.init_app(app)
 
-    # Import models so create_all sees them
+    # Import models
     from .models import Paper
     from .routes import main
     app.register_blueprint(main)
