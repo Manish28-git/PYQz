@@ -1,0 +1,183 @@
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #283618 0%, #283612 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 40px;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 30px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+/* Headings */
+h1 {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+/* Search form */
+.search-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  width: 60%;
+  max-width: 300px;
+}
+
+.search-form button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Action button */
+.actions {
+  margin-bottom: 20px;
+}
+
+.action-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Accordion dropdown */
+.year-dropdown {
+  background: rgba(255,255,255,0.2);
+  border-radius: 8px;
+  margin: 16px 0;
+  overflow: hidden;
+}
+
+.year-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  font-size: 1.2em;
+  font-weight: bold;
+  background: rgba(255,255,255,0.25);
+  transition: background 0.3s ease;
+}
+
+.year-dropdown summary:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+.year-dropdown[open] summary {
+  background: rgba(255,255,255,0.35);
+}
+
+/* Paper list inside dropdown */
+.paper-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 24px 16px;
+}
+
+.paper-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.paper-list li:last-child {
+  border-bottom: none;
+}
+
+/* Paper info & actions */
+.paper-info {
+  flex: 1;
+  text-align: left;
+}
+
+.paper-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Small button (Delete) */
+.small-btn {
+  padding: 6px 12px;
+  font-size: 0.9em;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 0, 0, 0.6);
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.small-btn:hover {
+  background: rgba(255, 0, 0, 0.8);
+}
+
+/* Links */
+a {
+  color: #070707;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Flash messages */
+ul.messages {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+ul.messages li {
+  margin-bottom: 5px;
+}
+
+.success {
+  color: #a0e9a0;
+}
+
+.danger {
+  color: #ff8080;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PYQz</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container glass">
+    <h1>📚 Previous Year Question Papers (AKTU)</h1>
+
+    <form method="GET" action="{{ url_for('main.index') }}" class="search-form">
+      <input type="text" name="q" placeholder="Search by title, subject, or year" value="{{ q }}">
+      <button type="submit">Search</button>
+    </form>
+
+    <div class="actions">
+      <a href="{{ url_for('main.upload') }}" class="action-btn">Upload New Paper</a>
+    </div>
+
+    {% for year, papers in papers_by_year.items() %}
+      <details class="year-dropdown">
+        <summary>{{ year }} ({{ papers|length }})</summary>
+        <ul class="paper-list">
+          {% for p in papers %}
+            <li>
+              <span class="paper-info">
+                <strong>{{ p.title }}</strong> ({{ p.subject }})
+              </span>
+              <span class="paper-actions">
+                <a href="{{ url_for('main.download', academic_year=year, filename=p.filename) }}">Download</a>
+                <form action="{{ url_for('main.delete_paper', paper_id=p.id) }}"
+                      method="POST" onsubmit="return confirm('Delete this paper?');">
+                  <button type="submit" class="small-btn">Delete</button>
+                </form>
+              </span>
+            </li>
+          {% endfor %}
+        </ul>
+      </details>
+    {% else %}
+      <p>No papers found.</p>
+    {% endfor %}
+  </div>
+</body>
+</html>
